@@ -1,20 +1,77 @@
-\documentclass[11pt]{article}
-\usepackage{xjtlu_light}
+% 前所未有简单地，开始你的 LaTeX 之旅
 
-\title{Experimental Report}
-\author{Your Name}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% [页面选项]
+%
+% 字号选项:    11pt是字号，比较适合电子印刷品和纸质印刷品
+% 字体选项:    不填写 - 默认为 Modern (别忘了连逗号一起删了)
+%			  times - Times New Roman
+%			  sans - Sans Serif 字体（黑体）
+% hardcopy:   打印机打印选项，带有此选项将去除logo颜色以及代码颜色，更适合黑白印刷
+%			  使用彩色或者电子版请去除此选项
+%			  也可以改为 editing ，颜色讲和 sublime3 的 Mariana 颜色主题一致，减小写作时的文本对比度
+%		          让你以最舒适的方式书写
+% heading:    页面带有页眉
+\documentclass[11pt,times]{eeereport}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% [封面选项]
+%
+% title:    文章主标题，不可以省略
+% subtitle: 副标题，可以省略，但不可以删除
+% covercontent: 封面信息，可以在其内部添加或者删除 \converline 来添加或者删除一行
+%    coverline{项目}{项目内容}，可以自由添加各种内容
+%
+\title{How To Rescue Your Report Using \LaTeX{}}
+\subtitle{}
+\covercontent{
+	\coverline{Author}{Your NAME}
+	\coverline{Partner}{Your Partner}
+	\coverline{Module}{EEE001 - Report Writing}
+	\coverline{Teacher}{Dr. Firstname SURNAME}
+	\coverline{Date}{$30^{th}$~/~Sept~/~2017}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 页面设定
+% 如果在前面设定了需要页面，请去掉下面三个的注释，然后分别进行定义，如果不定义，
+% LaTeX 会自动使用章节名称来进行页面定义
+%\lhead{} 
+%\chead{} 
+%\rhead{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{document}
-\maketitle
+
+\baselineskip = 17pt
+\pagenumbering{Alph}
+\begin{titlepage}
+\input{xjtlu_cover}
+\newpage
+\thispagestyle{empty}
+\end{titlepage}
+
 \baselineskip = 17pt
 
 \tableofcontents
 \newpage
 \baselineskip = 17pt
 
+\pagenumbering{arabic}
+
+
+\section*{Abstract}\addcontentsline{toc}{section}{Abstract}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras congue massa a ex luctus, in consectetur velit venenatis. Praesent porta dolor augue, at eleifend purus accumsan a. Vestibulum ullamcorper massa eget lobortis volutpat. Vestibulum at luctus lectus, vitae tristique ligula. Pellentesque ultrices viverra tellus, ut hendrerit urna varius ac. Sed nulla tortor, dignissim in justo nec, ullamcorper ultricies magna. In finibus, nisi eu lobortis ultricies, neque elit tempus purus, sit amet condimentum lorem ligula id magna. Integer a magna at augue euismod rhoncus mattis sit amet velit. Morbi eget leo a dolor porttitor commodo non non velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed quam feugiat, sollicitudin sapien id, semper est. In consectetur est eu sapien scelerisque, et sagittis sapien finibus. Nullam facilisis molestie ligula sed pharetra. Fusce nec sagittis arcu. Sed eu leo vel metus volutpat tincidunt. Suspendisse vehicula in elit eu pretium.
+
+
 \section{Experiment I: Voltage and Current Measurements, and Th\`{e}venin Equivalent Circuits}
 
 \subsection{Task A: Measuring DC Voltage and Current}
-   \subsubsection{Introduction}
+\subsubsection{Introduction}
 \figpdf{Result}{result1}{12cm}
 In one paragraph, using your own words, give a short description of the background for this experiment.  You can include relevant figures in this section.  All figures must be in vector graphics format (.eps or .pdf) drawn them by yourself.  I do not want to see any figure from elsewhere \ref{equ:e1}. 
 
@@ -37,13 +94,13 @@ Resistor & $R_{180\Omega}$ & $R_{100\Omega}$ & $R_{120\Omega}$ & $R_T^m$\\
 R_{ma}^T=\left(\frac{P}{I^2}\right) \times \cos(10\Omega) 
 \end{equation}
 
-\listwithnum{
+\lists{number}{
 	\item{Happy}
 	\item{New}
 	\item{Year}
 }
 
-\listwithdot{
+\lists{dot}{
 	\item{Too young too simple}
 	\item{Sometimes...}
 }
@@ -62,14 +119,12 @@ State your conclusion concisely, in a short paragraph.
 
 \subsubsection{Methodology}
 
-\ccode{c_test.c}
+\code{c++}{c_test.c}
 
 \subsubsection{Results and Discussions}
 
 \subsubsection{Conclusion}
 
-
-\newpage
 
 \section{Experiment II: Using the Oscilloscope}
 
